@@ -1,0 +1,14 @@
+[Unit]
+Description=CredBan SSH Brute Force Protection
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/credban --config /etc/credban.config
+Restart=on-failure
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=credban
+
+[Install]
+WantedBy=multi-user.target 
